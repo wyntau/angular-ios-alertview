@@ -106,7 +106,10 @@
               {
                 text: 'label3',
                 onClick: function(){
-                  iosAlertView.alert('label3');
+                  iosAlertView.remind({
+                    text: 'label3',
+                    showTimes: 1000
+                  });
                 }
               }
             ]

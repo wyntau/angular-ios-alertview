@@ -32,7 +32,8 @@ angular.module('ios-alertview', [])
     inputType: 'text',
     inputPlaceholder: '',
     cancelText: 'Cancel',
-    okText: 'OK'
+    okText: 'OK',
+    showTimes: 250
   };
   var keys = Object.keys(options);
   var self = this;
@@ -99,7 +100,7 @@ angular.module('ios-alertview', [])
             $animate.leave($element).then(function(){
               deferred.resolve();
             });
-          }, 650 /* 450ms animation time + 250ms show time */);
+          }, 450 + 1 * $scope.showTimes);
         }
 
         return deferred.promise;
