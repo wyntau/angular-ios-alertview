@@ -89,7 +89,11 @@
           <legend>iosAlertView.prompt</legend>
           <div class="desc"></div>
           <pre><code>
-    iosAlertView.prompt('prompt');
+    iosAlertView.prompt({
+      text: 'prompt',
+      inputType: 'number',
+      inputPlaceholder: 'inputPlaceholder'
+    });
           </code></pre>
           <div class="output">
             output: {{output | json}}
@@ -194,7 +198,11 @@
       'iosAlertView',
       function($scope, iosAlertView){
         $scope.demo = function(){
-          iosAlertView.prompt('prompt').then(function(value){
+          iosAlertView.prompt({
+            text: 'prompt',
+            inputType: 'number',
+            inputPlaceholder: 'inputPlaceholder'
+          }).then(function(value){
             $scope.output = value;
           }, function(){
             $scope.output = 'rejected';
