@@ -4,23 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui" />
   <title>angular-ios-alertview</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <style>
+    html{
+      font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+    .wrap{
+      width: 500px;
+      margin: 10px auto 0;
+    }
+    .demo{
+      margin-bottom: 20px;
+    }
+    pre{
+      margin: 0;
+    }
+    .output, .desc{
+      margin: 10px 0;
+    }
+    .pure-form legend{
+      border-bottom: none;
+      border-top: 1px solid #e5e5e5;
+      padding-top: 10px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+    .button-success,
+    .button-error,
+    .button-warning,
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    .button-success {
+        background: rgb(28, 184, 65); /* this is a green */
+    }
+    .button-error {
+        background: rgb(202, 60, 60); /* this is a maroon */
+    }
+    .button-warning {
+        background: rgb(223, 117, 20); /* this is an orange */
+    }
+    .button-secondary {
+        background: rgb(66, 184, 221); /* this is a light blue */
+    }
+  </style>
   <link rel="stylesheet" href="../angular-ios-alertview.css">
 </head>
 <body>
-  <div ng-controller="alertCtrl">
-    <button ng-click="alert()">alert</button>
-  </div>
-  <div ng-controller="confirmCtrl">
-    <button ng-click="confirm()">confirm</button>
-  </div>
-  <div ng-controller="promptCtrl">
-    <button ng-click="prompt()">prompt</button>
-  </div>
-  <div ng-controller="remindCtrl">
-    <button ng-click="remind()">remind</button>
-  </div>
-  <div ng-controller="AlertViewCtrl">
-    <button ng-click="alertview()">alertview</button>
+  <div class="wrap">
+    <div ng-controller="alertCtrl" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>iosAlertView.alert</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosAlertView.alert('alert');
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-warning" ng-click="demo()">demo</button>
+      </form>
+    </div>
+    <div ng-controller="confirmCtrl" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>iosAlertView.confirm</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosAlertView.confirm('confirm?');
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-secondary" ng-click="demo()">demo</button>
+      </form>
+    </div>
+    <div ng-controller="promptCtrl" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>iosAlertView.prompt</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosAlertView.prompt('prompt');
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-secondary" ng-click="demo()">demo</button>
+      </form>
+    </div>
+    <div ng-controller="remindCtrl" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>iosAlertView.remind</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosAlertView.remind('remind');
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-warning" ng-click="demo()">demo</button>
+      </form>
+    </div>
+    <div ng-controller="AlertViewCtrl" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>iosAlertView.AlertView</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosAlertView.AlertView({
+      title: 'insl',
+      text: 'text',
+      buttons: [
+        {
+          text: 'label1',
+          onClick: function(){
+            iosAlertView.alert('label1');
+          }
+        },
+        {
+          text: 'label2',
+          onClick: function(){
+            iosAlertView.alert('label2');
+          }
+        },
+        {
+          text: 'label3',
+          onClick: function(){
+            iosAlertView.remind({
+              text: 'label3',
+              showTimes: 1000
+            });
+          }
+        }
+      ]
+    });
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-success" ng-click="demo()">demo</button>
+      </form>
+    </div>
   </div>
   <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
   <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
@@ -38,9 +168,9 @@
       '$scope',
       'iosAlertView',
       function($scope, iosAlertView){
-        $scope.alert = function(){
+        $scope.demo = function(){
           iosAlertView.alert('alert').then(function(){
-            console.log('alert complete');
+            $scope.output = 'resolved';
           });
         }
       }
@@ -49,11 +179,11 @@
       '$scope',
       'iosAlertView',
       function($scope, iosAlertView){
-        $scope.confirm = function(){
+        $scope.demo = function(){
           iosAlertView.confirm('confirm?').then(function(){
-            console.log('resolve')
+             $scope.output = 'resolved';
           }, function(){
-            console.log('reject');
+            $scope.output = 'rejected';
           })
         }
       }
@@ -62,11 +192,11 @@
       '$scope',
       'iosAlertView',
       function($scope, iosAlertView){
-        $scope.prompt = function(){
+        $scope.demo = function(){
           iosAlertView.prompt('prompt').then(function(value){
-            console.log('value', value);
+            $scope.output = value;
           }, function(){
-            console.log('reject')
+            $scope.output = 'rejected';
           })
         }
       }
@@ -75,9 +205,9 @@
       '$scope',
       'iosAlertView',
       function($scope, iosAlertView){
-        $scope.remind = function(){
+        $scope.demo = function(){
           iosAlertView.remind('remind').then(function(){
-            console.log('remind');
+            $scope.output = 'resolved';
           })
         }
       }
@@ -86,7 +216,7 @@
       '$scope',
       'iosAlertView',
       function($scope, iosAlertView){
-        $scope.alertview = function(){
+        $scope.demo = function(){
           iosAlertView.AlertView({
             title: 'insl',
             text: 'text',
@@ -114,8 +244,8 @@
               }
             ]
           }).then(function(data){
-            console.log(data);
-          })
+            $scope.output = data;
+          });
         }
       }
     ])
