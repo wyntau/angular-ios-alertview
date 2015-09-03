@@ -1,3 +1,10 @@
+/*!
+ * angular-ios-alertview 1.0.0
+ * iOS7+ style alertview service for angular
+ * License: MIT
+ * Author: Treri
+ * build: Thu Sep 03 2015 17:14:13 GMT+0800 (CST)
+ **/
 angular.module('ios-alertview', [])
 .directive('iosAlertView', function(){
   return {
