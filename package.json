@@ -1,0 +1,30 @@
+{
+  "name": "angular-ios-alertview",
+  "version": "1.0.0",
+  "description": "iOS7+ style alertview service for angular",
+  "main": "angular-ios-alertview.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Treri/angular-ios-alertview.git"
+  },
+  "keywords": [
+    "angular",
+    "alertview"
+  ],
+  "author": "Treri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Treri/angular-ios-alertview/issues"
+  },
+  "homepage": "https://github.com/Treri/angular-ios-alertview#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-header": "^1.7.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.0"
+  }
+}

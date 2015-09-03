@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui" />
+  <title>angular-ios-alertview</title>
+  <link rel="stylesheet" href="../angular-ios-alertview.css">
+</head>
+<body>
+  <div ng-controller="alertCtrl">
+    <button ng-click="alert()">alert</button>
+  </div>
+  <div ng-controller="confirmCtrl">
+    <button ng-click="confirm()">confirm</button>
+  </div>
+  <div ng-controller="promptCtrl">
+    <button ng-click="prompt()">prompt</button>
+  </div>
+  <div ng-controller="remindCtrl">
+    <button ng-click="remind()">remind</button>
+  </div>
+  <div ng-controller="AlertViewCtrl">
+    <button ng-click="alertview()">alertview</button>
+  </div>
+  <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
+  <script src="../angular-ios-alertview.js"></script>
+  <script>
+    angular.module('demo', ['ngAnimate', 'ios-alertview'])
+    .config(['iosAlertViewProvider', function(iosAlertViewProvider){
+      iosAlertViewProvider.set({
+        title: 'angular-ios-alertview',
+        okText: '确定',
+        cancelText: '取消'
+      });
+    }])
+    .controller('alertCtrl', [
+      '$scope',
+      'iosAlertView',
+      function($scope, iosAlertView){
+        $scope.alert = function(){
+          iosAlertView.alert('alert').then(function(){
+            console.log('alert complete');
+          });
+        }
+      }
+    ])
+    .controller('confirmCtrl', [
+      '$scope',
+      'iosAlertView',
+      function($scope, iosAlertView){
+        $scope.confirm = function(){
+          iosAlertView.confirm('confirm?').then(function(){
+            console.log('resolve')
+          }, function(){
+            console.log('reject');
+          })
+        }
+      }
+    ])
+    .controller('promptCtrl', [
+      '$scope',
+      'iosAlertView',
+      function($scope, iosAlertView){
+        $scope.prompt = function(){
+          iosAlertView.prompt('prompt').then(function(value){
+            console.log('value', value);
+          }, function(){
+            console.log('reject')
+          })
+        }
+      }
+    ])
+    .controller('remindCtrl', [
+      '$scope',
+      'iosAlertView',
+      function($scope, iosAlertView){
+        $scope.remind = function(){
+          iosAlertView.remind('remind').then(function(){
+            console.log('remind');
+          })
+        }
+      }
+    ])
+    .controller('AlertViewCtrl', [
+      '$scope',
+      'iosAlertView',
+      function($scope, iosAlertView){
+        $scope.alertview = function(){
+          iosAlertView.AlertView({
+            title: 'insl',
+            text: 'text',
+            buttons: [
+              {
+                text: 'label1',
+                onClick: function(){
+                  iosAlertView.alert('label1');
+                }
+              },
+              {
+                text: 'label2',
+                onClick: function(){
+                  iosAlertView.alert('label2');
+                }
+              },
+              {
+                text: 'label3',
+                onClick: function(){
+                  iosAlertView.alert('label3');
+                }
+              }
+            ]
+          }).then(function(data){
+            console.log(data);
+          })
+        }
+      }
+    ])
+  </script>
+</body>
+</html>
