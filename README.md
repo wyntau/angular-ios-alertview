@@ -1,6 +1,11 @@
 ## angular-ios-alertview
 iOS7+ style alertview service for angular
 
+### Install
+```shell
+bower install angular-ios-alertview
+```
+
 ### Usage
 1. include `angular-ios-aleretview.js` and `angular-ios-alertview.css` in you html
 2. include `ios-alertview` in you angular dependencies
