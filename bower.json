@@ -1,0 +1,22 @@
+{
+  "name": "angular-ios-alertview",
+  "main": "angular-ios-alertview.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Treri/angular-ios-alertview",
+  "authors": [
+    "Treri <treri.liu@gmail.com>"
+  ],
+  "description": "iOS7+ style alertview service for angular",
+  "keywords": [
+    "angular",
+    "alertview"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
