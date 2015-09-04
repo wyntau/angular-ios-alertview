@@ -46,7 +46,6 @@
   -ms-transition-property: -ms-transform, opacity;
   -o-transition-property: -o-transform, opacity;
   transition-property: transform, opacity;
-  color: #000;
 }
 .ios-alertview-overlay.ng-enter .ios-alertview{
   opacity: 0;

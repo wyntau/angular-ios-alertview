@@ -3,7 +3,7 @@
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 12:34:32 GMT+0800 (CST)
+ * build: Fri Sep 04 2015 15:29:22 GMT+0800 (CST)
  **/
 .ios-alertview-overlay{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -53,7 +53,6 @@
   -ms-transition-property: -ms-transform, opacity;
   -o-transition-property: -o-transform, opacity;
   transition-property: transform, opacity;
-  color: #000;
 }
 .ios-alertview-overlay.ng-enter .ios-alertview{
   opacity: 0;
