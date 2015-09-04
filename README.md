@@ -24,7 +24,7 @@ bower install angular-ios-alertview
 - `showTimes`, remind show duration, default `250`ms
 - `buttons`, array of button object.
 
-    one example of button object
+    an example of button object
     ```js
     {
       text: 'OK',
