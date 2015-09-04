@@ -3,7 +3,7 @@
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 15:29:22 GMT+0800 (CST)
+ * build: Fri Sep 04 2015 15:49:42 GMT+0800 (CST)
  **/
 .ios-alertview-overlay{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -18,12 +18,9 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: 10600;
   -webkit-transition-duration: .4s;
-  transition-duration: .4s;
+          transition-duration: .4s;
   -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -ms-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
+          transition-property: opacity;
 }
 .ios-alertview-overlay.ng-enter, .ios-alertview-overlay.ng-leave-active{
   opacity: 0;
@@ -44,34 +41,27 @@
   text-align: center;
   border-radius: 7px;
   -webkit-transition-duration: .4s;
-  transition-duration: .4s;
+          transition-duration: .4s;
   -webkit-transform: translate3d(-50%, -50%, 0);
-  -ms-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
   -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -ms-transition-property: -ms-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  transition-property: transform, opacity;
+          transition-property: transform, opacity;
 }
 .ios-alertview-overlay.ng-enter .ios-alertview{
   opacity: 0;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(1.185);
-  -ms-transform: translate3d(-50%, -50%, 0) scale(1.185);
-  transform: translate3d(-50%, -50%, 0) scale(1.185);
+          transform: translate3d(-50%, -50%, 0) scale(1.185);
 }
 .ios-alertview-overlay.ng-enter-active .ios-alertview, .ios-alertview-overlay.ng-leave .ios-alertview{
   opacity: 1;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
-  -ms-transform: translate3d(-50%, -50%, 0) scale(1);
-  transform: translate3d(-50%, -50%, 0) scale(1);
+          transform: translate3d(-50%, -50%, 0) scale(1);
 }
 .ios-alertview-overlay.ng-leave-active .ios-alertview{
   opacity: 0;
   z-index: 10999;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(0.815);
-  -ms-transform: translate3d(-50%, -50%, 0) scale(0.815);
-  transform: translate3d(-50%, -50%, 0) scale(0.815);
+          transform: translate3d(-50%, -50%, 0) scale(0.815);
 }
 
 .ios-alertview-inner{
@@ -95,7 +85,6 @@
 }
 .ios-alertview-text-input{
   outline: 0;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 30px;
   background: #fff;
@@ -108,12 +97,10 @@
   font-size: 14px;
   font-family: inherit;
   display: block;
-  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .ios-alertview-buttons{
   overflow: hidden;
@@ -121,13 +108,13 @@
 .ios-alertview-buttons-horizontal{
   height: 44px;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
   -webkit-justify-content: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .ios-alertview-button{
   width: 100%;
@@ -145,8 +132,6 @@
   overflow: hidden;
   cursor: pointer;
   border-bottom: 1px solid #b5b5b5;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .ios-alertview-button.ios-alertview-button-bold{
@@ -163,7 +148,9 @@
   border-bottom: none;
   border-right: 1px solid #b5b5b5;
   -webkit-box-flex: 1;
-  -ms-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .ios-alertview-buttons-horizontal .ios-alertview-button:first-child{ /* cancel */
   border-radius: 0 0 0 7px;

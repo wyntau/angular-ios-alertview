@@ -3,7 +3,7 @@
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 15:29:22 GMT+0800 (CST)
+ * build: Fri Sep 04 2015 15:49:42 GMT+0800 (CST)
  **/
 angular.module('ios-alertview', [])
 .directive('iosAlertView', function(){
