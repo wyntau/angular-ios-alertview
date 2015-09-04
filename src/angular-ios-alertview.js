@@ -12,7 +12,7 @@ angular.module('ios-alertview', [])
             '<input class="ios-alertview-text-input" type="{{ inputType }}" placeholder="{{ inputPlaceholder }}" ng-model="form.inputValue" ng-if="input" />',
           '</div>',
           '<div class="ios-alertview-buttons" ng-if="buttons.length" ng-class="{\'ios-alertview-buttons-horizontal\': buttons.length <= 2}">',
-            '<span class="ios-alertview-button" ng-class="{\'ios-alertview-button-bold\': button.bold}" ng-repeat="button in buttons" ng-click="onClick($index, button)">{{ button.text }}</span>',
+            '<span class="ios-alertview-button" ng-class="{\'ios-alertview-button-bold\': button.bold}" ng-repeat="button in buttons" ng-click="onClick(button, $index)">{{ button.text }}</span>',
           '</div>',
         '</div>',
       '</div>'
@@ -75,7 +75,7 @@ angular.module('ios-alertview', [])
         angular.extend($scope, options, option, {form: {}});
         var $element = $compile('<div ios-alert-view></div>')($scope);
 
-        $scope.onClick = function(index, button){
+        $scope.onClick = function(button, index){
 
           var inputValue = $scope.form.inputValue;
           var cbkData = {
