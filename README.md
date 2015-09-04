@@ -43,33 +43,33 @@ bower install angular-ios-alertview
 0. `iosAlertViewProvider.set`, set global option in you configBlock.
 1. `iosAlertView.AlertView`, base of other methods
 
-    - params: string or object. when string, option.text is set.
+    - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
 2. `iosAlertView.alert`
 
-    - params: string or object. when string, option.text is set.
+    - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
     promise will be resoved when user click button
 
 3. `iosAlertView.confirm`
 
-    - params: string or object. when string, option.text is set.
+    - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
     promise will be resolved when user click OK button, or be rejected when user click Cancel button
 
 4. `iosAlertView.prompt`
 
-    - params: string or object. when string, option.text is set.
+    - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
     promise will be resolved with `inputValue` when user click OK button, or be rejected when user click Cancel button.
 
 5. `iosAlertView.remind`
 
-    - params: string or object. when string, option.text is set.
+    - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
     promise will be resolved when `showTimes` later
