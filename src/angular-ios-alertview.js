@@ -33,7 +33,8 @@ angular.module('ios-alertview', [])
     inputPlaceholder: '',
     cancelText: 'Cancel',
     okText: 'OK',
-    showTimes: 250
+    showTimes: 250,
+    defaultOption: 'text'
   };
   var keys = Object.keys(options);
   var self = this;
@@ -107,16 +108,18 @@ angular.module('ios-alertview', [])
       }
 
       function objectify(option){
-        if(angular.isString(option)){
-          return {
-            text: option
-          };
-        }else if(angular.isObject(option)){
+
+        if(angular.isObject(option)){
           return option;
+        }
+
+        var opt = {};
+        if(angular.isString(option)){
+          opt[options.defaultOption] = option;
         }else{
           $log.error('expect a string or an object');
-          return {};
         }
+        return opt;
       }
 
       function alert(option){

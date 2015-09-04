@@ -37,6 +37,8 @@ bower install angular-ios-alertview
     }
     ```
 
+- `defaultOption`, the option key if you just pass in a string when you invoke `alert`, `comfirm`, `prompt` or `remind`. default `text`, you can set it to `title` or something else.
+
 ### APIs
 0. `iosAlertViewProvider.set`, set global option in you configBlock.
 1. `iosAlertView.AlertView`, base of other methods

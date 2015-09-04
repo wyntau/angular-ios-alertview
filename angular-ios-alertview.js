@@ -1,9 +1,9 @@
 /*!
- * angular-ios-alertview 1.0.0
+ * angular-ios-alertview 1.1.0
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Thu Sep 03 2015 17:14:13 GMT+0800 (CST)
+ * build: Fri Sep 04 2015 10:48:13 GMT+0800 (CST)
  **/
 angular.module('ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -40,7 +40,8 @@ angular.module('ios-alertview', [])
     inputPlaceholder: '',
     cancelText: 'Cancel',
     okText: 'OK',
-    showTimes: 250
+    showTimes: 250,
+    defaultOption: 'text'
   };
   var keys = Object.keys(options);
   var self = this;
@@ -114,16 +115,18 @@ angular.module('ios-alertview', [])
       }
 
       function objectify(option){
-        if(angular.isString(option)){
-          return {
-            text: option
-          };
-        }else if(angular.isObject(option)){
+
+        if(angular.isObject(option)){
           return option;
+        }
+
+        var opt = {};
+        if(angular.isString(option)){
+          opt[options.defaultOption] = option;
         }else{
           $log.error('expect a string or an object');
-          return {};
         }
+        return opt;
       }
 
       function alert(option){
