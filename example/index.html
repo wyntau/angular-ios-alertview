@@ -161,7 +161,7 @@
   <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
   <script src="../angular-ios-alertview.js"></script>
   <script>
-    angular.module('demo', ['ngAnimate', 'ios-alertview'])
+    angular.module('demo', ['ngAnimate', 'angular-ios-alertview'])
     .config(['iosAlertViewProvider', function(iosAlertViewProvider){
       iosAlertViewProvider.set({
         title: 'angular-ios-alertview',
@@ -226,7 +226,7 @@
       'iosAlertView',
       function($scope, iosAlertView){
         $scope.demo = function(){
-          iosAlertView.AlertView({
+          iosAlertView({
             title: 'insl',
             text: 'text',
             buttons: [
