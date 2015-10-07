@@ -1,9 +1,9 @@
 /*!
- * angular-ios-alertview 1.2.1
+ * angular-ios-alertview 1.2.2
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 16:29:23 GMT+0800 (CST)
+ * build: Wed Oct 07 2015 10:22:53 GMT+0800 (CST)
  **/
 angular.module('ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -32,7 +32,7 @@ angular.module('ios-alertview', [])
   };
 })
 .provider('iosAlertView', function (){
-  var options = {
+  var defaults = {
     title: null,
     text: null,
     input: false,
@@ -43,7 +43,7 @@ angular.module('ios-alertview', [])
     showTimes: 250,
     defaultOption: 'text'
   };
-  var keys = Object.keys(options);
+  var keys = Object.keys(defaults);
   var self = this;
   self.set = function(key, value){
     if(angular.isObject(key)){
@@ -53,7 +53,7 @@ angular.module('ios-alertview', [])
     }else{
       if(key && (keys.indexOf(key) > -1)){
         if(value){
-          options[key] = value;
+          defaults[key] = value;
         }
       }
     }
@@ -79,7 +79,7 @@ angular.module('ios-alertview', [])
 
         var deferred = $q.defer();
         var $scope = $rootScope.$new(true);
-        angular.extend($scope, options, option, {form: {}});
+        angular.extend($scope, defaults, option, {form: {}});
         var $element = $compile('<div ios-alert-view></div>')($scope);
 
         $scope.onClick = function($event, button, $index){
@@ -125,7 +125,7 @@ angular.module('ios-alertview', [])
 
         var opt = {};
         if(angular.isString(option)){
-          opt[options.defaultOption] = option;
+          opt[defaults.defaultOption] = option;
         }else{
           $log.error('expect a string or an object');
         }
@@ -135,7 +135,7 @@ angular.module('ios-alertview', [])
       function alert(option){
         var deferred = $q.defer();
         option = objectify(option);
-        option = angular.extend({}, options, option);
+        option = angular.extend({}, defaults, option);
         option = angular.extend(option, {
           buttons: [{
             text: option.okText,
@@ -150,7 +150,7 @@ angular.module('ios-alertview', [])
       function confirm(option){
         var deferred = $q.defer();
         option = objectify(option);
-        option = angular.extend({}, options, option);
+        option = angular.extend({}, defaults, option);
         option = angular.extend(option, {
           buttons: [
             {
@@ -171,7 +171,7 @@ angular.module('ios-alertview', [])
       function prompt(option){
         var deferred = $q.defer();
         option = objectify(option);
-        option = angular.extend({}, options, option);
+        option = angular.extend({}, defaults, option);
         option = angular.extend(option, {
           input: true,
           buttons: [
@@ -197,7 +197,7 @@ angular.module('ios-alertview', [])
       function remind(option){
         var deferred = $q.defer();
         option = objectify(option);
-        option = angular.extend({}, options, option);
+        option = angular.extend({}, defaults, option);
         AlertView(option).then(deferred.resolve, deferred.reject);
         return deferred.promise;
       }
