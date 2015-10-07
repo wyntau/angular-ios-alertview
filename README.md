@@ -7,8 +7,8 @@ bower install angular-ios-alertview
 ```
 
 ### Usage
-1. include `angular-ios-aleretview.js` and `angular-ios-alertview.css` in you html
-2. include `ios-alertview` in you angular dependencies
+1. include `angular-ios-alertview.js` and `angular-ios-alertview.css` in you html
+2. include `angular-ios-alertview` in you angular dependencies
 3. inject `iosAlertView` in you angular app
 
 ### All options

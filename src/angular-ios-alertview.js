@@ -1,4 +1,4 @@
-angular.module('ios-alertview', [])
+angular.module('angular-ios-alertview', [])
 .directive('iosAlertView', function(){
   return {
     restrict: 'AE',
