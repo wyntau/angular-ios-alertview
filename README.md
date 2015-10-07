@@ -41,7 +41,7 @@ bower install angular-ios-alertview
 
 ### APIs
 0. `iosAlertViewProvider.set`, set global option in you configBlock.
-1. `iosAlertView.AlertView`, base of other methods
+1. `iosAlertView`, base of other methods
 
     - params: string or object. when string, option[defaultOption] is set.
     - return: promise

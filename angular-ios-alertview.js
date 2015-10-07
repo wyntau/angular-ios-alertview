@@ -1,9 +1,9 @@
 /*!
- * angular-ios-alertview 1.3.0
+ * angular-ios-alertview 1.4.0
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Wed Oct 07 2015 10:47:22 GMT+0800 (CST)
+ * build: Wed Oct 07 2015 11:18:21 GMT+0800 (CST)
  **/
 angular.module('angular-ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -69,11 +69,11 @@ angular.module('angular-ios-alertview', [])
     '$log',
     function($rootScope, $compile, $animate, $q, $document, $timeout, $log){
 
-      function AlertView(option){
+      function iosAlertView(option){
 
         // expect option is object
         if(!angular.isObject(option)){
-          $log.error('AlertView expect object option');
+          $log.error('iosAlertView expect object option');
           return $q.when();
         }
 
@@ -103,7 +103,7 @@ angular.module('angular-ios-alertview', [])
           });
         };
 
-        $animate.enter($element, $document[0].body);
+        $animate.enter($element, $document[0].body, $document[0].body.lastChild);
 
         if(!$scope.buttons || !$scope.buttons.length){
           // if no buttons, remove modal in 650ms
@@ -143,7 +143,7 @@ angular.module('angular-ios-alertview', [])
             bold: true
           }]
         });
-        AlertView(option).then(deferred.resolve, deferred.reject);
+        iosAlertView(option).then(deferred.resolve, deferred.reject);
         return deferred.promise;
       }
 
@@ -164,7 +164,7 @@ angular.module('angular-ios-alertview', [])
             }
           ]
         });
-        AlertView(option).then(deferred.resolve, deferred.reject);
+        iosAlertView(option).then(deferred.resolve, deferred.reject);
         return deferred.promise;
       }
 
@@ -188,7 +188,7 @@ angular.module('angular-ios-alertview', [])
             }
           ]
         });
-        AlertView(option).then(function(data){
+        iosAlertView(option).then(function(data){
           deferred.resolve(data.inputValue);
         }, deferred.reject);
         return deferred.promise;
@@ -198,17 +198,16 @@ angular.module('angular-ios-alertview', [])
         var deferred = $q.defer();
         option = objectify(option);
         option = angular.extend({}, defaults, option);
-        AlertView(option).then(deferred.resolve, deferred.reject);
+        iosAlertView(option).then(deferred.resolve, deferred.reject);
         return deferred.promise;
       }
 
-      return {
-        AlertView: AlertView,
-        alert: alert,
-        confirm: confirm,
-        prompt: prompt,
-        remind: remind
-      };
+      iosAlertView.alert = alert;
+      iosAlertView.confirm = confirm;
+      iosAlertView.prompt = prompt;
+      iosAlertView.remind = remind;
+
+      return iosAlertView;
     }
   ];
 });
