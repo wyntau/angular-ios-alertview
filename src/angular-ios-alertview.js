@@ -82,7 +82,7 @@ angular.module('ios-alertview', [])
 
           var inputValue = $scope.form.inputValue;
           var cbkData = {
-            $index: $index,
+            index: $index,
             button: button,
             inputValue: inputValue
           };

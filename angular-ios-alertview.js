@@ -1,9 +1,9 @@
 /*!
- * angular-ios-alertview 1.2.2
+ * angular-ios-alertview 1.2.3
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Wed Oct 07 2015 10:22:53 GMT+0800 (CST)
+ * build: Wed Oct 07 2015 10:28:29 GMT+0800 (CST)
  **/
 angular.module('ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -89,7 +89,7 @@ angular.module('ios-alertview', [])
 
           var inputValue = $scope.form.inputValue;
           var cbkData = {
-            $index: $index,
+            index: $index,
             button: button,
             inputValue: inputValue
           };
