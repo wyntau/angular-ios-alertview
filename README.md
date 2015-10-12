@@ -12,7 +12,7 @@ bower install angular-ios-alertview
 3. inject `iosAlertView` in you angular app
 
 ### All options
-(Note: some options are specific to different alertview type, e.g. `showTimes` is only for `iosAlertView.remind`)
+(Note: some options are specific to different alertview type, e.g. `remindTime` is only for `iosAlertView.remind`)
 
 - `title`, alertview title, default empty
 - `text`, alertview content, support html string. default empty
@@ -21,7 +21,7 @@ bower install angular-ios-alertview
 - `inputPlaceholder`, input field placeholder, default empty
 - `cancelText`, cancel button text, default `Cancel`
 - `okText`, ok button text, default `OK`
-- `showTimes`, remind show duration, default `250`ms
+- `remindTime`, remind show duration, default `250`ms
 - `buttons`, array of button object.
 
     an example of button object
@@ -72,7 +72,7 @@ bower install angular-ios-alertview
     - params: string or object. when string, option[defaultOption] is set.
     - return: promise
 
-    promise will be resolved when `showTimes` later
+    promise will be resolved when `remindTime` later
 
 ### License
 MIT

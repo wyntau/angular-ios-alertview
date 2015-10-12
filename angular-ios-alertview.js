@@ -1,9 +1,9 @@
 /*!
- * angular-ios-alertview 1.4.1
+ * angular-ios-alertview 1.4.2
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Wed Oct 07 2015 11:26:20 GMT+0800 (CST)
+ * build: Mon Oct 12 2015 18:45:18 GMT+0800 (CST)
  **/
 angular.module('angular-ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -40,7 +40,7 @@ angular.module('angular-ios-alertview', [])
     inputPlaceholder: '',
     cancelText: 'Cancel',
     okText: 'OK',
-    showTimes: 250,
+    remindTime: 250,
     defaultOption: 'text'
   };
   var keys = Object.keys(defaults);
@@ -111,7 +111,7 @@ angular.module('angular-ios-alertview', [])
             $animate.leave($element).then(function(){
               deferred.resolve();
             });
-          }, 450 + 1 * $scope.showTimes);
+          }, 450 + 1 * $scope.remindTime);
         }
 
         return deferred.promise;
