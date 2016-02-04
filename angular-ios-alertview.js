@@ -3,7 +3,7 @@
  * iOS7+ style alertview service for angular
  * License: MIT
  * Author: Treri
- * build: Mon Oct 12 2015 18:45:18 GMT+0800 (CST)
+ * build: Thu Feb 04 2016 14:20:21 GMT+0100 (CET)
  **/
 angular.module('angular-ios-alertview', [])
 .directive('iosAlertView', function(){
@@ -11,12 +11,12 @@ angular.module('angular-ios-alertview', [])
     restrict: 'AE',
     replace: true,
     template: [
-      '<div class="ios-alertview-overlay">',
+      '<div class="ios-alertview-overlay" ng-cloak>',
         '<div class="ios-alertview">',
           '<div class="ios-alertview-inner" ng-class="{\'ios-alertview-inner-remind\': !buttons || !buttons.length}">',
             '<div class="ios-alertview-title" ng-if="title">{{ title }}</div>',
             '<div class="ios-alertview-text" ng-bind-html="renderHtml(text)" ng-if="text"></div>',
-            '<input class="ios-alertview-text-input" type="{{ inputType }}" placeholder="{{ inputPlaceholder }}" ng-model="form.inputValue" ng-if="input" />',
+            '<input autofocus class="ios-alertview-text-input" type="{{ inputType }}" placeholder="{{ inputPlaceholder }}" ng-model="form.inputValue" ng-if="input" />',
           '</div>',
           '<div class="ios-alertview-buttons" ng-if="buttons.length" ng-class="{\'ios-alertview-buttons-horizontal\': buttons.length <= 2}">',
             '<span class="ios-alertview-button" ng-class="{\'ios-alertview-button-bold\': button.bold}" ng-repeat="button in buttons" ng-click="onClick($event, button, $index)">{{ button.text }}</span>',
