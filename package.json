@@ -1,6 +1,6 @@
 {
   "name": "angular-ios-alertview",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "iOS7+ style alertview service for angular",
   "main": "angular-ios-alertview.js",
   "scripts": {
